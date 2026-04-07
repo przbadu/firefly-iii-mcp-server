@@ -11,7 +11,7 @@ export function getApiBaseUrl() {
     const url = process.env.FIREFLY_III_URL;
     if (!url) {
         throw new Error("FIREFLY_III_URL environment variable is required. " +
-            "Set it to your Firefly III instance URL (e.g. https://expense.przbadu.dev)");
+            "Set it to your Firefly III instance URL (e.g. https://app.expense");
     }
     // Strip trailing slash
     return url.replace(/\/+$/, "");

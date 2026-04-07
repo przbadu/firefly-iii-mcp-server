@@ -52,7 +52,7 @@ Edit your Claude Desktop config file:
       "command": "node",
       "args": ["/absolute/path/to/firefly-iii-mcp-server/dist/index.js"],
       "env": {
-        "FIREFLY_III_URL": "https://expense.przbadu.dev",
+        "FIREFLY_III_URL": "https://app.expense",
         "FIREFLY_III_PAT": "your-personal-access-token-here"
       }
     }
@@ -64,7 +64,7 @@ Edit your Claude Desktop config file:
 
 ```bash
 claude mcp add firefly-iii \
-  -e FIREFLY_III_URL=https://expense.przbadu.dev \
+  -e FIREFLY_III_URL=https://app.expense \
   -e FIREFLY_III_PAT=your-personal-access-token-here \
   -- node /absolute/path/to/firefly-iii-mcp-server/dist/index.js
 ```
@@ -78,7 +78,7 @@ Or add it to your `.claude/settings.json`:
       "command": "node",
       "args": ["/absolute/path/to/firefly-iii-mcp-server/dist/index.js"],
       "env": {
-        "FIREFLY_III_URL": "https://expense.przbadu.dev",
+        "FIREFLY_III_URL": "https://app.expense",
         "FIREFLY_III_PAT": "your-personal-access-token-here"
       }
     }

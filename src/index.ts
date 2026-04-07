@@ -39,7 +39,7 @@ async function main(): Promise<void> {
   // Validate required env vars early
   if (!process.env.FIREFLY_III_URL) {
     console.error("ERROR: FIREFLY_III_URL environment variable is required.");
-    console.error("Set it to your Firefly III instance URL (e.g. https://expense.przbadu.dev)");
+    console.error("Set it to your Firefly III instance URL (e.g. https://app.expense)");
     process.exit(1);
   }
   if (!process.env.FIREFLY_III_PAT) {
