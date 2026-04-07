@@ -1,5 +1,8 @@
 # Firefly III MCP Server
 
+[![npm version](https://img.shields.io/npm/v/firefly-iii-mcp-server.svg)](https://www.npmjs.com/package/firefly-iii-mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 An MCP (Model Context Protocol) server that gives Claude full access to your [Firefly III](https://www.firefly-iii.org/) personal finance instance. Talk to Claude in natural language to record expenses, check balances, manage budgets, and more.
 
 ## Features
@@ -25,14 +28,18 @@ An MCP (Model Context Protocol) server that gives Claude full access to your [Fi
 
 ## Installation
 
+### Via npm (recommended)
+
 ```bash
-# Clone or copy this directory to your machine
+npm install -g firefly-iii-mcp-server
+```
+
+### From source
+
+```bash
+git clone https://github.com/przbadu/firefly-iii-mcp-server.git
 cd firefly-iii-mcp-server
-
-# Install dependencies
 npm install
-
-# Build
 npm run build
 ```
 
@@ -45,14 +52,32 @@ Edit your Claude Desktop config file:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
+Using the npm-installed binary:
+
 ```json
 {
   "mcpServers": {
     "firefly-iii": {
-      "command": "node",
-      "args": ["/absolute/path/to/firefly-iii-mcp-server/dist/index.js"],
+      "command": "firefly-iii-mcp-server",
       "env": {
-        "FIREFLY_III_URL": "https://app.expense",
+        "FIREFLY_III_URL": "https://your-firefly-instance.example.com",
+        "FIREFLY_III_PAT": "your-personal-access-token-here"
+      }
+    }
+  }
+}
+```
+
+Or using npx (no global install needed):
+
+```json
+{
+  "mcpServers": {
+    "firefly-iii": {
+      "command": "npx",
+      "args": ["-y", "firefly-iii-mcp-server"],
+      "env": {
+        "FIREFLY_III_URL": "https://your-firefly-instance.example.com",
         "FIREFLY_III_PAT": "your-personal-access-token-here"
       }
     }
@@ -64,9 +89,9 @@ Edit your Claude Desktop config file:
 
 ```bash
 claude mcp add firefly-iii \
-  -e FIREFLY_III_URL=https://app.expense \
+  -e FIREFLY_III_URL=https://your-firefly-instance.example.com \
   -e FIREFLY_III_PAT=your-personal-access-token-here \
-  -- node /absolute/path/to/firefly-iii-mcp-server/dist/index.js
+  -- npx -y firefly-iii-mcp-server
 ```
 
 Or add it to your `.claude/settings.json`:
@@ -75,10 +100,10 @@ Or add it to your `.claude/settings.json`:
 {
   "mcpServers": {
     "firefly-iii": {
-      "command": "node",
-      "args": ["/absolute/path/to/firefly-iii-mcp-server/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "firefly-iii-mcp-server"],
       "env": {
-        "FIREFLY_III_URL": "https://app.expense",
+        "FIREFLY_III_URL": "https://your-firefly-instance.example.com",
         "FIREFLY_III_PAT": "your-personal-access-token-here"
       }
     }
